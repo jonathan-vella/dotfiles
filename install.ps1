@@ -22,7 +22,8 @@ function New-Symlink {
 $VsCodeSettings = Join-Path $env:APPDATA 'Code\User\settings.json'
 
 Write-Host '==> Linking git'
-New-Symlink "$DotfilesDir\git\.gitconfig" "$HOME\.gitconfig"
+New-Symlink "$DotfilesDir\git\.gitconfig"        "$HOME\.gitconfig"
+New-Symlink "$DotfilesDir\git\.gitignore_global" "$HOME\.gitignore_global"
 
 Write-Host '==> Linking PowerShell profile'
 New-Symlink "$DotfilesDir\powershell\Microsoft.PowerShell_profile.ps1" $PROFILE
