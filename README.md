@@ -8,7 +8,8 @@ Cross-platform dotfiles for shell (bash/zsh), git, VS Code, and PowerShell — m
 
 | Path | What it configures |
 |---|---|
-| `git/.gitconfig` | Git aliases, colours, default branch, push behaviour |
+| `git/.gitconfig` | Git aliases, colours, default branch, push behaviour, global gitignore |
+| `git/.gitignore_global` | Global gitignore — secrets, OS files, editors, common build output |
 | `shell/.profile` | Login shell: XDG dirs, `$PATH` |
 | `shell/.bashrc` | Bash: history, prompt, aliases, `mkcd()` |
 | `shell/.zshrc` | Zsh: history, completion, prompt, aliases, `mkcd()` |
@@ -16,6 +17,17 @@ Cross-platform dotfiles for shell (bash/zsh), git, VS Code, and PowerShell — m
 | `powershell/Microsoft.PowerShell_profile.ps1` | PowerShell prompt, PSReadLine, `touch`/`which`/`mkcd` |
 | `install.sh` | Symlink installer — Linux & macOS |
 | `install.ps1` | Symlink installer — Windows (PowerShell 7+) |
+
+---
+
+## Security (public repo)
+
+This repo is public. Keep the following in mind:
+
+- **No secrets, tokens, or passwords** should ever be committed here. The repo-level `.gitignore` and the global `.gitignore_global` both guard against the most common cases, but they are not a substitute for care.
+- **Use local override files** (see [Local overrides](#local-overrides)) for anything machine-specific or sensitive.
+- **`git/.gitconfig` contains your name and email.** This is intentional for a personal dotfiles repo — your identity is already public on GitHub. If you fork this for someone else or a work context, update those values.
+- If you ever accidentally commit a secret, assume it is compromised. Rotate the credential immediately, then remove it from git history with `git filter-repo` or BFG.
 
 ---
 
@@ -35,9 +47,9 @@ git clone https://github.com/jonathan-vella/dotfiles.git $HOME\dotfiles
 
 ---
 
-### 2. Set your git identity
+### 2. Check your git identity
 
-Edit `git/.gitconfig` and replace the placeholder name and email **before** running the installer:
+`git/.gitconfig` already contains a name and email. If you're setting this up on a new machine for yourself, you're good. If you forked this repo, update those values before running the installer:
 
 ```ini
 [user]
@@ -49,7 +61,7 @@ Edit `git/.gitconfig` and replace the placeholder name and email **before** runn
 
 ### 3. Run the installer
 
-The installer creates symlinks from your home directory into the repo.  
+The installer creates symlinks from your home directory into the repo. It also wires up `~/.gitignore_global` so your global gitignore is active in every repo on the machine.  
 Any file that already exists is backed up to `<file>.bak` before being replaced.
 
 **Linux / macOS**
@@ -107,7 +119,7 @@ git push
 ```
 
 After this, every dev container you open will automatically have your:
-- Git aliases and config
+- Git aliases, global gitignore, and config
 - Bash / zsh aliases, prompt, and helper functions
 - Shell history settings
 
@@ -160,7 +172,8 @@ No re-linking needed — symlinks always point to the repo files, so updates tak
 ```
 dotfiles/
 ├── git/
-│   └── .gitconfig
+│   ├── .gitconfig
+│   └── .gitignore_global
 ├── shell/
 │   ├── .profile
 │   ├── .bashrc
@@ -172,5 +185,6 @@ dotfiles/
 ├── install.sh          ← Linux / macOS installer
 ├── install.ps1         ← Windows / pwsh installer
 ├── .gitignore
+├── LICENSE
 └── README.md
 ```
