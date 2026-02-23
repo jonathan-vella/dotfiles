@@ -24,7 +24,8 @@ link() {
 }
 
 echo "==> Linking git"
-link "$DOTFILES_DIR/git/.gitconfig"  "$HOME/.gitconfig"
+link "$DOTFILES_DIR/git/.gitconfig"        "$HOME/.gitconfig"
+link "$DOTFILES_DIR/git/.gitignore_global" "$HOME/.gitignore_global"
 
 echo "==> Linking shell"
 link "$DOTFILES_DIR/shell/.profile"  "$HOME/.profile"
