@@ -1,0 +1,103 @@
+# Global .gitignore — applied to all repos via .gitconfig [core] excludesFile
+# Never commit these files in any project.
+
+# ----- Secrets & credentials -----
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+*.jks
+credentials
+credentials.json
+secrets.json
+*_rsa
+*_dsa
+*_ecdsa
+*_ed25519
+.htpasswd
+
+# ----- OS files -----
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ----- Editor / IDE -----
+.idea/
+*.iml
+*.iws
+*.suo
+*.user
+*.swp
+*.swo
+
+# ----- Languages & build output -----
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.yarn/cache
+.yarn/unplugged
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+
+# .NET / C#
+bin/
+obj/
+.vs/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# ----- Misc -----
+*.log
+*.bak
+*.tmp
+*.orig
+*.rej
+coverage/
