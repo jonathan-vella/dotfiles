@@ -1,5 +1,20 @@
-# Local override files — never commit these
+# Local machine overrides — never commit these
 *.local
 *.bak
+
+# OS noise
 .DS_Store
 Thumbs.db
+
+# Secrets — safety net in case someone accidentally adds one
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+credentials
+credentials.json
+secrets.json
