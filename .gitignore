@@ -1,0 +1,5 @@
+# Local override files — never commit these
+*.local
+*.bak
+.DS_Store
+Thumbs.db

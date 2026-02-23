@@ -1,0 +1,42 @@
+{
+  // Editor
+  "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, monospace",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.rulers": [80, 120],
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "smooth",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+
+  // Workbench
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.iconTheme": "vs-seti",
+  "workbench.startupEditor": "none",
+  "workbench.editor.highlightModifiedTabs": true,
+
+  // Terminal
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+
+  // Files
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+
+  // Git
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true
+}
